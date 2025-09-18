@@ -1,6 +1,6 @@
 # Transition to ACTIVE: set phase and timer (example: 15 min active – adjust as needed)
 scoreboard players set #phase br.phase 2
-scoreboard players set br.sec_left br.sec_left 900
+scoreboard players set #grace br.sec_left 900
 
 # Re-enable PVP
 team modify br.all friendlyFire true
