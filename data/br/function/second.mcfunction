@@ -16,9 +16,6 @@ execute as @a if score @s br.deaths > @s br.lastdeaths run gamemode spectator @s
 execute as @a if score @s br.deaths > @s br.lastdeaths run title @s actionbar {"text":"Du er eliminert.","color":"red"}
 execute as @a if score @s br.deaths > @s br.lastdeaths run scoreboard players operation @s br.lastdeaths = @s br.deaths
 
-# Phase timing
-execute if score #phase br.phase matches 1..3 run scoreboard players remove #grace br.sec_left 1
-
 # Generic countdown pings
 
 # Specific Norwegian calls for spec
