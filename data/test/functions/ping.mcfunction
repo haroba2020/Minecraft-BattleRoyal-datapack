@@ -1,1 +1,1 @@
-say hello
+say hello! Datapack is running.
