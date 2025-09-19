@@ -2,7 +2,6 @@
 scoreboard players set #phase br.phase 3
 scoreboard players set br.sec_left br.sec_left 300
 
-tellraw @a {"text":"[BR] SUDDEN DEATH startet! Border krymper til 20 på 5 minutter.","color":"light_purple"}
-title @a title {"text":"SUDDEN DEATH","color":"light_purple","bold":true}
-
-# Shrink from current size to 20 over 300 seconds
+tellraw @a {"text":"[BR] SUDDEN DEATH startet!","color":"red"}
+title @a title {"text":"SUDDEN DEATH","color":"red","bold":true}
+bossbar set br:suddendeath visible false
