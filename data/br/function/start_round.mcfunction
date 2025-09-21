@@ -8,7 +8,8 @@ function br:handle_bossbar
 
 
 # Put all online players on team and into Survival, reset death shadow
-team join br.all @a
+team join br.all @a[team=!admin]
+gamemode survival @a[team=br.all]
 team modify br.all friendlyFire false
 gamemode creative @a
 effect clear @a
@@ -19,7 +20,7 @@ title @a clear
 
 # Border: size 600, centered at current center
 worldborder set 600
-tellraw @a [{"text":"[BR] Worldborder satt til 600 og sentrert.","color":"green"}]
+# tellraw @a [{"text":"[BR] Worldborder satt til 600 og sentrert.","color":"green"}]
 
 # Spread players around the center
 function br:spread
@@ -29,5 +30,5 @@ title @a title {"text":"Runde har startet!","color":"gold","bold":true}
 title @a subtitle {"text":"Grace periode i 10 minutter (PVP AV)","color":"yellow"}
 tellraw @a {"text":"[BR] Runde har startet: Grace 10:00. PVP er deaktivert.","color":"gold"}
 
-effect give @a fire_resistance 100 0 true
-effect give @a regeneration 100 0 true
+effect give @a invisibility 240 0 true
+effect give @a regeneration 240 0 true
