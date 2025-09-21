@@ -12,7 +12,7 @@ title @a title {"text":"PVP AKTIVERT!","color":"red","bold":true}
 title @a subtitle {"text":"Lykke til...","color":"dark_red"}
 tellraw @a {"text":"[BR] PVP aktivert. Aktiv fase pågår.","color":"red"}
 
-worldborder set 20 60
+worldborder set 20 400
 
 # Increase border damage
 worldborder damage amount 1.0
