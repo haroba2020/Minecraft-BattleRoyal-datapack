@@ -11,7 +11,6 @@ function br:handle_bossbar
 team join br.all @a[team=!admin]
 gamemode survival @a[team=br.all]
 team modify br.all friendlyFire false
-gamemode creative @a
 effect clear @a
 scoreboard players operation @a br.lastdeaths = @a br.deaths
 
