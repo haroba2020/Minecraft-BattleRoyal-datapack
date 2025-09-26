@@ -32,7 +32,3 @@ scoreboard objectives setdisplay sidebar br.points
 
 # Optional: center defaults to current worldspawn; you can override with /function br:set_center
 execute in overworld run execute positioned as @e[type=minecraft:marker, name="br_center", limit=1] run worldborder center ~ ~
-
-# If no marker exists, leave center as current border center; size will be set on round start.
-
-tellraw @a [{"text":"[BR] Datapakken er lastet. Bruk ","color":"yellow"},{"text":"/function br:set_center","color":"aqua"},{"text":" (se på ønsket senter) og ","color":"yellow"},{"text":"/function br:start_round","color":"aqua"}]

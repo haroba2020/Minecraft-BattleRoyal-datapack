@@ -6,3 +6,5 @@ scoreboard objectives add br.sec_left dummy
 scoreboard objectives add br.deaths dummy
 scoreboard objectives add br.lastdeaths dummy
 scoreboard objectives add br.sec_left dummy
+
+function br:load
