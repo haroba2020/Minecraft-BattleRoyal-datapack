@@ -10,6 +10,7 @@ function br:handle_bossbar
 # Put all online players on team and into Survival, reset death shadow
 team join br.all @a[team=!admin]
 gamemode survival @a[team=br.all]
+clear @a[team=br.all]
 team modify br.all friendlyFire false
 effect clear @a
 scoreboard players operation @a br.lastdeaths = @a br.deaths
