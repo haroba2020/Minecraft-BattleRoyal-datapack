@@ -1,1 +1,0 @@
-$worldborder set $(size)

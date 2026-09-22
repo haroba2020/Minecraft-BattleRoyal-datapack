@@ -1,4 +1,7 @@
-execute unless data storage br:state center.dimension run return run function br:stop_state
-function br:world/end_round with storage br:state center
-# If an unloaded world prevented dispatch, still stop the match globally.
-execute unless score #phase br.phase matches 4 run function br:stop_state
+scoreboard players set #won br.sys 1
+execute unless data storage br:state center.dimension run return 0
+data modify storage br:call args set from storage br:state center
+data modify storage br:call args.action set value "finish"
+function br:run with storage br:call args
+scoreboard players set #phase br.phase 0
+bossbar set br:timer visible false
