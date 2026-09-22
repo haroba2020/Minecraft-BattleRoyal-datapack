@@ -13,7 +13,8 @@ Grace: 10 min → PvP og krympende grense: 20 min → sluttspill: 5 min.
 Død = ute. Siste overlevende vinner. Drap: 1 poeng. Seier: 3 poeng. Solo er tillatt.
 Start tømmer inventar og erfaring; runden fortsetter ved frakobling.
 
-Administrator: `/tag NAVN add br.admin`. Deltakere må være uten andre lag.
+Administrator: `/team join admin NAVN` (eller taggen `br.admin`). Kun administratorer får feilmeldinger.
+Deltakere må være uten andre lag.
 Endre standardverdier i `data/br/function/config.mcfunction`, kjør `/reload`
 og `/function br:config` mellom rundene. Serveren må tillate PvP og fremskritt.
 

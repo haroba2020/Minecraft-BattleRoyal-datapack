@@ -20,15 +20,15 @@ scoreboard players operation #diameter br.sys = #range br.sys
 scoreboard players operation #diameter br.sys += #range br.sys
 scoreboard players add #diameter br.sys 8
 execute if score #diameter br.sys > #border br.sys run scoreboard players set #valid br.sys 0
-execute unless score #valid br.sys matches 1 run return run tellraw @s {"text":"[BR] Ugyldige innstillinger i br:config.","color":"red"}
-execute if entity @a[distance=0..,team=!,team=!br.all,team=!admin,tag=!br.admin] run return run tellraw @s {"text":"[BR] Fjern deltakernes andre lag før start.","color":"red"}
+execute unless score #valid br.sys matches 1 run return run tellraw @a[predicate=br:admin] {"text":"[BR] Ugyldige innstillinger i br:config.","color":"red"}
+execute if entity @a[distance=0..,team=!,team=!br.all,team=!admin,tag=!br.admin] run return run tellraw @a[predicate=br:admin] {"text":"[BR] Fjern deltakernes andre lag før start.","color":"red"}
 tag @a[distance=0..] remove br.candidate
 tag @a[distance=0..,team=!admin,tag=!br.admin] add br.candidate
-execute unless entity @a[tag=br.candidate,distance=0..] run return run tellraw @s {"text":"[BR] Ingen deltakere i arenaen.","color":"red"}
+execute unless entity @a[tag=br.candidate,distance=0..] run return run tellraw @a[predicate=br:admin] {"text":"[BR] Ingen deltakere i arenaen.","color":"red"}
 scoreboard players set #spread_ok br.sys 0
 $execute store success score #spread_ok br.sys run spreadplayers $(x) $(z) $(spread) $(range) false @a[distance=0..,tag=br.candidate]
 tag @a[distance=0..] remove br.candidate
-execute unless score #spread_ok br.sys matches 1 run return run tellraw @s {"text":"[BR] Ingen trygge startposisjoner. Juster arenaen.","color":"red"}
+execute unless score #spread_ok br.sys matches 1 run return run tellraw @a[predicate=br:admin] {"text":"[BR] Ingen trygge startposisjoner. Juster arenaen.","color":"red"}
 # Only a successful spread commits the round and clears inventories.
 execute as @a[tag=br.participant] run function br:restore
 data modify storage br:state center set from storage br:settings center
