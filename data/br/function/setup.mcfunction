@@ -1,10 +1,3 @@
-scoreboard objectives add br.points playerKillCount Points
-scoreboard objectives add br.kills dummy
-scoreboard objectives add br.wins dummy
-scoreboard objectives add br.phase dummy
-scoreboard objectives add br.sec_left dummy
-scoreboard objectives add br.deaths dummy
-scoreboard objectives add br.lastdeaths dummy
-scoreboard objectives add br.sec_left dummy
-
+# Safe to call again; never recreates objectives with different criteria.
 function br:load
+tellraw @s {"text":"[BR] Klar.","color":"green"}

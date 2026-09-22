@@ -1,1 +1,2 @@
-# (Unused placeholder if you want a manual switch)
+# Backwards-compatible manual phase transition.
+function br:grace_end

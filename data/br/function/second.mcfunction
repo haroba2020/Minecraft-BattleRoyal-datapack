@@ -1,21 +1,8 @@
-# decrement during phases 1..3
-execute if score #phase br.phase matches 1..3 run scoreboard players remove #grace br.sec_left 1
-
-# update bossbar while in GRACE
-execute if score #phase br.phase matches 1 run bossbar set br:grace players @a
-execute if score #phase br.phase matches 1 run execute store result bossbar br:grace value run scoreboard players get #grace br.sec_left
-execute if score #phase br.phase matches 1 run bossbar set br:grace name {"text":"Grace – ","color":"yellow","extra":[{"score":{"name":"#grace","objective":"br.sec_left"}},{"text":"s igjen"}]}
-
-execute if score #phase br.phase matches 2 run bossbar set br:suddendeath players @a
-execute if score #phase br.phase matches 2 run execute store result bossbar br:suddendeath value run scoreboard players get #grace br.sec_left
-execute if score #phase br.phase matches 2 run bossbar set br:suddendeath name {"text":"Sudden Death - ","color":"red","extra":[{"score":{"name":"#grace","objective":"br.sec_left"}},{"text":"s igjen"}]}
-
-# Pings
-execute if score #phase br.phase matches 1 if score #grace br.sec_left matches 300 run tellraw @a {"text":"[BR] 5 min igjen av grace.","color":"yellow"}
-execute if score #phase br.phase matches 2 if score #grace br.sec_left matches 600 run tellraw @a {"text":"[BR] Sudden death om 10 min.","color":"red"}
-execute if score #phase br.phase matches 2 if score #grace br.sec_left matches 300 run tellraw @a {"text":"[BR] Sudden death om 5 min.","color":"red"}
-execute if score #phase br.phase matches 2 if score #grace br.sec_left matches 60 run tellraw @a {"text":"[BR] Sudden death om 1 min.","color":"red"}
-
-# Phase transitions
-execute if score #phase br.phase matches 1 if score #grace br.sec_left matches ..0 run function br:grace_end
-execute if score #phase br.phase matches 2 if score #grace br.sec_left matches ..0 run function br:sudden_death
+scoreboard players set #tick br.timer 0
+scoreboard players remove #remaining br.sec_left 1
+# Return after a transition, so one second cannot consume two phases.
+execute if score #remaining br.sec_left matches ..0 if score #phase br.phase matches 5 run return run function br:begin_grace with storage br:state config
+execute if score #remaining br.sec_left matches ..0 if score #phase br.phase matches 1 run return run function br:grace_end
+execute if score #remaining br.sec_left matches ..0 if score #phase br.phase matches 2 run return run function br:sudden_death
+execute if score #remaining br.sec_left matches ..0 if score #phase br.phase matches 3 run return run function br:draw
+function br:handle_bossbar

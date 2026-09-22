@@ -1,34 +1,19 @@
-# === One-time setup ===
-scoreboard objectives add br.timer dummy
-scoreboard objectives add br.phase dummy
-scoreboard objectives add br.sec_left dummy
+# br.sys is the schema bootstrap; an already-existing objective is harmless.
+scoreboard objectives add br.sys dummy
+# Clear the global sidebar only when migrating the previous BR schema.
+execute if score #schema br.sys matches 2 run scoreboard objectives setdisplay sidebar
+execute unless score #schema br.sys matches 2.. run function br:install
+execute if score #schema br.sys matches 2 run function br:migrate_v3
+execute if data storage br:state center.dimension run function br:handle_bossbar
 
-scoreboard objectives add br.kills minecraft.custom:minecraft.player_kills
-scoreboard objectives add br.wins dummy
-scoreboard objectives add br.points dummy
-scoreboard objectives add br.deaths minecraft.custom:minecraft.deaths
-scoreboard objectives add br.lastdeaths dummy
 
-scoreboard objectives add br.addwin trigger
-# Team to control friendly fire (PVP toggle)
-team add br.all Alle
-team modify br.all color green
-team modify br.all nametagVisibility never
-team modify br.all collisionRule pushOtherTeams
+# Localized display names also apply to existing worlds.
+scoreboard objectives modify br.total displayname {"text": "Poeng"}
+scoreboard objectives modify br.rkills displayname {"text": "Drap denne runden"}
+scoreboard objectives modify br.tkills displayname {"text": "Drap totalt"}
+scoreboard objectives modify br.v2wins displayname {"text": "Seire"}
+team modify br.all displayName {"text":"Deltakere"}
 
-# Gamerules that fit BR
-gamerule doImmediateRespawn true
-gamerule keepInventory false
-gamerule announceAdvancements false
 
-# Default state
-scoreboard players set #tick br.timer 0
-scoreboard players set #one br.timer 1
-scoreboard players set #twenty br.timer 20
-scoreboard players set #phase br.phase 0
-
-# Sidebar
-scoreboard objectives setdisplay sidebar br.points
-
-# Optional: center defaults to current worldspawn; you can override with /function br:set_center
-execute in overworld run execute positioned as @e[type=minecraft:marker, name="br_center", limit=1] run worldborder center ~ ~
+# Migrate old round context without resetting an existing round.
+execute if data storage br:state center.x unless data storage br:state center.dimension run data modify storage br:state center.dimension set value "minecraft:overworld"
