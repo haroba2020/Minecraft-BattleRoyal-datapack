@@ -17,4 +17,4 @@ Administrator: `/tag NAVN add br.admin`. Deltakere må være uten andre lag.
 Endre standardverdier i `data/br/function/config.mcfunction`, kjør `/reload`
 og `/function br:config` mellom rundene. Serveren må tillate PvP og fremskritt.
 
-Bygg ZIP: `python tools/package.py --version 26.2` (eller `26.3`).
+Bygg ZIP: `python tools/package.py`.
