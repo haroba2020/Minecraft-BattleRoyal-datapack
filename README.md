@@ -1,7 +1,18 @@
-# Minecraft-BattleRoyal-datapack
-Datapack for phoenix LAN hunger games tournament
+# Battle Royale v2
 
-Make sure to run "/function br:setup" to initialize scoreboard objectives neccessary for variables
-To set the world spawn run "/function br:set_center"
+Minecraft Java 26.2.
 
-And then to finally run the game do "/function start_round"
+```
+/minecraft:reload
+/function br:set_center
+/function br:start_round
+```
+
+Sett sentrum mens du står i arenaen. Avslutt med `/function br:end_round`.
+Grace: 10 min → PvP og krympende worldboarder: 20 min → suddendeath: 5 min.
+Siste overlevende vinner. Kill: 1 poeng. Win: 3 poeng.
+Start tømmer inventar og XP. runden fortsetter ved frakobling.
+
+Administrator: `/team join admin NAVN` (eller taggen `br.admin`). Kun administratorer får feilmeldinger.
+Deltakere må være uten andre lag.
+Endre standardverdier i `data/br/function/config.mcfunction`

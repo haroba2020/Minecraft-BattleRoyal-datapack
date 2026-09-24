@@ -1,6 +1,13 @@
 {
   "pack": {
-    "pack_format": 81,
-    "description": "Survival Games BR (1.21.8) – grace, PVP toggle, border, spread, scoreboard"
+    "min_format": [
+      107,
+      1
+    ],
+    "max_format": [
+      107,
+      1
+    ],
+    "description": "Battle Royale v2 | Java 26.2"
   }
 }
