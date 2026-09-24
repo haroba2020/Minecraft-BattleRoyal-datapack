@@ -1,3 +1,8 @@
-summon minecraft:firework_rocket ~ ~6 ~ {LifeTime:20,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:1,explosions:[{shape:"large_ball",colors:[I;16766720,16777215],has_trail:true,has_twinkle:true}]}}}}
-summon minecraft:firework_rocket ~2 ~6 ~ {LifeTime:20,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:1,explosions:[{shape:"large_ball",colors:[I;16766720,16777215],has_trail:true,has_twinkle:true}]}}}}
-summon minecraft:firework_rocket ~-2 ~6 ~ {LifeTime:20,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:1,explosions:[{shape:"large_ball",colors:[I;16766720,16777215],has_trail:true,has_twinkle:true}]}}}}
+# Save the victory location so scheduled waves keep their world and position.
+data modify storage br:fireworks origin.x set from entity @s Pos[0]
+data modify storage br:fireworks origin.y set from entity @s Pos[1]
+data modify storage br:fireworks origin.z set from entity @s Pos[2]
+data modify storage br:fireworks origin.dimension set from entity @s Dimension
+scoreboard players set #fireworks br.sys 8
+schedule clear br:firework_show
+function br:firework_show
