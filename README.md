@@ -18,3 +18,6 @@ Start tømmer inventar og XP. runden fortsetter ved frakobling.
 Administrator: `/team join admin NAVN` (eller taggen `br.admin`). Kun administratorer får feilmeldinger.
 Deltakere må være uten andre lag.
 Endre standardverdier i `data/br/function/config.mcfunction`
+
+Fasebytte under en runde: `/function br:start_grace`, `/function br:start_pvp`
+eller `/function br:start_sudden_death`. Starter fasens timer på nytt.

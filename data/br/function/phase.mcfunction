@@ -1,3 +1,8 @@
+scoreboard players set #tick br.timer 0
+execute if score #phase br.phase matches 1..2 run effect clear @a[tag=br.glow] glowing
+execute if score #phase br.phase matches 1..2 run tag @a[tag=br.glow] remove br.glow
+$execute if score #phase br.phase matches 1 run worldborder set $(border)
+$execute if score #phase br.phase matches 3 run worldborder set $(final_border)
 $execute if score #phase br.phase matches 1 run scoreboard players set #remaining br.sec_left $(grace)
 $execute if score #phase br.phase matches 2 run scoreboard players set #remaining br.sec_left $(active)
 $execute if score #phase br.phase matches 3 run scoreboard players set #remaining br.sec_left $(sudden)
