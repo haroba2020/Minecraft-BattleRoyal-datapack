@@ -58,4 +58,4 @@ $worldborder set $(border)
 worldborder damage amount 1
 worldborder damage buffer 2
 scoreboard players set #phase br.phase 1
-function br:phase with storage br:state config
+function br:start_grace

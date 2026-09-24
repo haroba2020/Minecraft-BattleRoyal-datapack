@@ -1,0 +1,3 @@
+summon minecraft:firework_rocket ~ ~6 ~ {LifeTime:20,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:1,explosions:[{shape:"large_ball",colors:[I;16766720,16777215],has_trail:true,has_twinkle:true}]}}}}
+summon minecraft:firework_rocket ~2 ~6 ~ {LifeTime:20,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:1,explosions:[{shape:"large_ball",colors:[I;16766720,16777215],has_trail:true,has_twinkle:true}]}}}}
+summon minecraft:firework_rocket ~-2 ~6 ~ {LifeTime:20,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{flight_duration:1,explosions:[{shape:"large_ball",colors:[I;16766720,16777215],has_trail:true,has_twinkle:true}]}}}}
