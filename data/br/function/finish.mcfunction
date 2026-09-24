@@ -11,5 +11,4 @@ data modify storage br:state border.seconds set value 0
 function br:border with storage br:state border
 worldborder damage amount 0.2
 worldborder damage buffer 5
-gamemode spectator @a[distance=0..,tag=br.participant,tag=!br.admin,team=!admin]
 execute as @a[tag=br.participant] run function br:restore

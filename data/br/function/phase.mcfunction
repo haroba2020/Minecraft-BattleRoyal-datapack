@@ -8,7 +8,7 @@ execute if score #phase br.phase matches 2..3 run team modify br.all friendlyFir
 $execute if score #phase br.phase matches 2 run worldborder set $(final_border) $(active)s
 execute if score #phase br.phase matches 1 run tellraw @a[distance=0..] {"text":"[BR] Grace startet. PvP er av. Dør du, er du ute.","color":"gold"}
 execute if score #phase br.phase matches 2 run tellraw @a[distance=0..] {"text":"[BR] PvP er på. Grensen krymper!","color":"red"}
-execute if score #phase br.phase matches 3 run tellraw @a[distance=0..] {"text":"[BR] Sluttspill! Flere igjen når tiden går ut: uavgjort.","color":"red"}
+execute if score #phase br.phase matches 3 run tellraw @a[distance=0..] {"text":"[BR] Sudden Death!","color":"red"}
 execute if score #phase br.phase matches 3 run effect give @a[distance=0..,tag=br.alive] glowing infinite 0 true
 execute if score #phase br.phase matches 3 run tag @a[distance=0..,tag=br.alive] add br.glow
 function br:update_bar
